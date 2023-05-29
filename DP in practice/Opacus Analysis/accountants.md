@@ -3,7 +3,7 @@
   - [analysis/rdp.py](#analysisrdppy)
     - [Example](#example)
     - [如何计算($\\alpha$,$\\rho$)-RDP](#如何计算alpharho-rdp)
-    - [如何转化成($/epsilon$,$\\delta$)-DP](#如何转化成epsilondelta-dp)
+    - [如何转化成($\\epsilon$,$\\delta$)-DP](#如何转化成epsilondelta-dp)
   - [Reference](#reference)
 
 
@@ -54,9 +54,10 @@ def compute_rdp(
 ) -> Union[List[float], float]:
 ```
 compute_rdp返回$\rho$，注意这里$\rho=\rho_i*steps$是一个组合，我愿称之为同质组合，对于不同batch还需要进行异质组合。累加的理论依据如下。
+
 ![](/picture/2023-05-29-18-34-19.png)
 
-### 如何转化成($/epsilon$,$\delta$)-DP
+### 如何转化成($\epsilon$,$\delta$)-DP
 ```python
 def get_privacy_spent(...)
 eps = (
@@ -67,6 +68,7 @@ eps = (
 ```
 这里使用的是2019*Hypothesis Testing Interpretations and Rényi Differential Privacy*里的转换定理，相比17年*Rényi Differential Privacy*给出的转换更加tight。
 二者对比如下（第一个是17年的结果，第二个是19年结果）。
+
 ![](/picture/2023-05-29-18-24-57.png)
 ![](/picture/2023-05-29-18-26-28.png)
 
