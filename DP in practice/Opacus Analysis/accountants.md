@@ -4,6 +4,7 @@
     - [Example](#example)
     - [如何计算($\\alpha$,$\\rho$)-RDP](#如何计算alpharho-rdp)
     - [如何转化成($\\epsilon$,$\\delta$)-DP](#如何转化成epsilondelta-dp)
+  - [prv.py](#prvpy)
   - [Reference](#reference)
 
 
@@ -33,7 +34,10 @@ The example code would be:
 (0.336, 23)
 ```
 首先看他给我们的例子，从parameter可以看出，batch有很多个，每个batch有一组对应参数。
-**orders**实际上是$\alpha$的候选，允许**列表**或者**某个值**。
+**orders**实际上是$\alpha$的候选，允许**列表**或者**某个值**。默认的候选$\alpha$是如下的，
+```python
+DEFAULT_ALPHAS = [1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64))
+```
 **compute_rdp**会计算每一轮的($\alpha$,$\rho$)-RDP的$\rho$值。
 **get_privacy**主要干了两件事情，把($\alpha$,$\rho$)-RDP转成($\epsilon$,$delta$)-DP，选出最小的$\epsilon_{\alpha}$。
 总结一下，rdp.py做了一件事情，使用RDP**跟踪隐私损失**。具体来说，计算每一轮RDP的损失，使用RDP线性组合的性质**累加**，最后转成DP选择最优的$\epsilon$和对应的$\alpha$输出。
@@ -76,6 +80,8 @@ eps = (
 return eps[idx_opt], orders_vec[idx_opt]
 ```
 如果是给定的$\alpha$，后者就没什么意义。
+
+## prv.py
 
 ## Reference
 *Mironov I, Talwar K, Zhang L. R\'enyi differential privacy of the sampled gaussian mechanism[J]. arXiv preprint arXiv:1908.10530, 2019.*
