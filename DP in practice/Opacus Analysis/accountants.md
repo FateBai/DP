@@ -82,7 +82,12 @@ return eps[idx_opt], orders_vec[idx_opt]
 如果是给定的$\alpha$，后者就没什么意义。
 
 ## prv.py
+
 相比直接使用RDP能获得更加tight的隐私bound。
+
+更快的计算速度。
+
+使用快速傅里叶变换。
 
 ## Reference
 *Mironov I, Talwar K, Zhang L. R\'enyi differential privacy of the sampled gaussian mechanism[J]. arXiv preprint arXiv:1908.10530, 2019.*
