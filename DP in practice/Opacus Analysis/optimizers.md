@@ -1,4 +1,11 @@
 # optimizers
+- [optimizers](#optimizers)
+  - [optimizer.py](#optimizerpy)
+    - [Example](#example)
+    - [clip\_and\_accumulate()](#clip_and_accumulate)
+    - [add noise()](#add-noise)
+  - [ddpoptimizer.py](#ddpoptimizerpy)
+
 ## optimizer.py
 ### Example
 ```
