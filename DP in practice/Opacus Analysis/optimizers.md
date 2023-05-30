@@ -18,7 +18,7 @@
 ...     expected_batch_size=4,
 ... )
 ```
-值得注意的是noise_multiplier是高斯分布的标准差的一部分，$\sigma = noise\_multiplier*max\_grad\_norm$，可以认为$\epsilon$和$\delta$蕴含在noise_multiplier之中。
+值得注意的是noise_multiplier是高斯分布的标准差的一部分，$\sigma$ = noise_multiplier*max_grad_norm$，可以认为$\epsilon$和$\delta$蕴含在noise_multiplier之中。
 
 ```
 optimizer: Optimizer,
